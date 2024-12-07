@@ -30,35 +30,35 @@ class _UnitConverterHomeState extends State<UnitConverterHome> {
   String _tempResult = '';
   String _distanceResult = '';
 
-  // void _convertTemp() {
-  //   double fahrenheit = double.tryParse(_tempController.text) ?? 0;
-  //   double celsius = (fahrenheit - 32) * 5 / 9;
-  //   setState(() {
-  //     _tempResult = '${celsius.toStringAsFixed(2)} °C';
-  //   });
-  // }
-
   void _convertTemp() {
-    if (_tempController.text.trim().isEmpty) {
-      setState(() {
-        _tempResult = 'Please enter a valid temperature.';
-      });
-      return;
-    }
-
-    double? fahrenheit = double.tryParse(_tempController.text);
-    if (fahrenheit == null) {
-      setState(() {
-        _tempResult = 'Invalid input. Please enter a number.';
-      });
-      return;
-    }
-
+    double fahrenheit = double.tryParse(_tempController.text) ?? 0;
     double celsius = (fahrenheit - 32) * 5 / 9;
     setState(() {
       _tempResult = '${celsius.toStringAsFixed(2)} °C';
     });
   }
+
+  // void _convertTemp() {
+  //   if (_tempController.text.trim().isEmpty) {
+  //     setState(() {
+  //       _tempResult = 'Please enter a valid temperature.';
+  //     });
+  //     return;
+  //   }
+  //
+  //   double? fahrenheit = double.tryParse(_tempController.text);
+  //   if (fahrenheit == null) {
+  //     setState(() {
+  //       _tempResult = 'Invalid input. Please enter a number.';
+  //     });
+  //     return;
+  //   }
+  //
+  //   double celsius = (fahrenheit - 32) * 5 / 9;
+  //   setState(() {
+  //     _tempResult = '${celsius.toStringAsFixed(2)} °C';
+  //   });
+  // }
 
   void _convertDistance() {
     double miles = double.tryParse(_distanceController.text) ?? 0;
